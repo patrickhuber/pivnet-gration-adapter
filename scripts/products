@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+cat | /dev/null
+pivnet login --api-token ${PIVNET_TOKEN} | /dev/null
+pivnet products --format=json
