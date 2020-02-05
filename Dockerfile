@@ -13,6 +13,4 @@ COPY scripts* /scripts
 
 FROM ubuntu:bionic
 COPY --from=build /usr/local/bin/pivnet /usr/local/bin/pivnet
-COPY --from=build /scripts/products /opt/pivnet/products
-COPY --from=build /scripts/releases /opt/pivnet/releases
-COPY --from=build /scripts/files /opt/pivnet/files
+COPY --from=build /scripts/* /opt/pivnet/
