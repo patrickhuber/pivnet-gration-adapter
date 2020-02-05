@@ -14,3 +14,5 @@ COPY scripts* /scripts
 FROM ubuntu:bionic
 COPY --from=build /usr/local/bin/pivnet /usr/local/bin/pivnet
 COPY --from=build /scripts/* /opt/pivnet/
+COPY certificates/* /usr/local/share/ca-certificates/
+RUN chmod 644 /usr/local/share/ca-certificates/*.pem && update-ca-certificates
