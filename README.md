@@ -5,6 +5,6 @@ A tion adapter for pivnet
 
 ### products
 
-in: <nil>
+in: &lt;nil&gt;
   
 out: list of products
