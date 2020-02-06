@@ -1,2 +1,2 @@
-# pivnet-gration-adapter
-a gration adapter for pivnet
+# pivnet-tion-adapter
+A tion adapter for pivnet
