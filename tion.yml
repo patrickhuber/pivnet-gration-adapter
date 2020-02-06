@@ -1,0 +1,4 @@
+---
+channels:
+- name: in
+- name: out
