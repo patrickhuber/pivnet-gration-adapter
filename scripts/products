@@ -10,12 +10,12 @@ ensure_var(){
 }
 ensure_var "PIVNET_TOKEN"
 ensure_var "com.tion.channels.in.port"
-ensure_var "com.tion.channels.in.ip"
+ensure_var "com.tion.channels.in.host"
 ensure_var "com.tion.channels.out.port"
-ensure_var "com.tion.channels.out.ip"
+ensure_var "com.tion.channels.out.host"
 
 # login
-pivnet login --api-token ${PIVNET_TOKEN}
+pivnet login --api-token ${PIVNET_TOKEN} 
 
 # write products to the output channel
-pivnet products --format=json
+pivnet products --format=json > /dev/tcp/${com.tion.channels.out.host}/${com.tion.channels.out.port}
