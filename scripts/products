@@ -2,7 +2,7 @@
 set -e
 
 ensure_var(){
-  if [[ -z "${$1}" ]]; then
+  if [[ -z "${!1}" ]]; then
     # we must use stderr for error messages
     >&2 echo "$1 environment variable is required"
     exit 1
