@@ -1,11 +1,21 @@
 #!/bin/bash
 set -e
 
-# we must use stderr for error messages
-if [[ -z "${PIVNET_TOKEN}" ]]; then
-  >&2 echo "PIVNET_TOKEN environment variable is required"
-  exit 1
-fi
+ensure_var(){
+  if [[ -z "${$1}" ]]; then
+    # we must use stderr for error messages
+    >&2 echo "$1 environment variable is required"
+    exit 1
+  fi  
+}
+ensure_var "PIVNET_TOKEN"
+ensure_var "com.tion.channels.in.port"
+ensure_var "com.tion.channels.in.ip"
+ensure_var "com.tion.channels.out.port"
+ensure_var "com.tion.channels.out.ip"
 
-pivnet login --api-token ${PIVNET_TOKEN} > /dev/null
+# login
+pivnet login --api-token ${PIVNET_TOKEN}
+
+# write products to the output channel
 pivnet products --format=json
